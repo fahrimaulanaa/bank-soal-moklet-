@@ -1,0 +1,17 @@
+#RewriteEngine on
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule .* index.php/$0 [PT,L]
+
+#RewriteEngine on
+#RewriteBase /
+#RewriteCond $1 !^(index\.php|static|robots\.txt|favicon\.ico|uploads|googlexxxxxxxx\.html|mobile.html)
+#RewriteRule ^(.*)$ index.php/$1 [L] 
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  #RewriteBase /
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.php [QSA,L]
+</IfModule>

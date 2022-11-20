@@ -1,0 +1,9 @@
+#Order Deny,Allow
+#Allow from 10.5.5.0/29
+#Allow from 61.247.28.84
+#Deny from all
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php/$0 [PT,L]

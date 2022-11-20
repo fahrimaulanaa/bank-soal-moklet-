@@ -1,0 +1,26 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+	class Entry extends CI_Controller {
+	
+	  public function index()
+	  {
+        //echo print_r($this->session->userdata);
+        if ($this->session->userdata('login') == TRUE){
+            $this->load->model('Entry_model', 'entry',true);
+
+            $data['mp'] = $this->entry->cari_semua()->result();
+            $data['breadcrumb'] = 'Entry Soal';
+
+            $data['main_view'] = "entry_view";
+
+            //$this->data['pesan'] = 'Tidak ada data absen.';
+            $this->load->view('template', $data);
+            //$this->load->view('masthead');$this->load->view('entry_view', $data);
+        }
+        else
+        {
+            redirect(login);
+        }
+	  }
+		
+	}
+?>
